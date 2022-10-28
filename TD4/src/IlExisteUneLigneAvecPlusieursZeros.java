@@ -35,4 +35,9 @@ public class IlExisteUneLigneAvecPlusieursZeros{
             return false;
         }
     }
+    /**
+     * Donnée : une matrice remplie d'entiers.
+     * Résultat :renvoie un boolean qui sera soit vrai soit faux
+     *           en fonction de si dans la matrice il existe une ligne avec plusieurs zeros.
+     */
 }

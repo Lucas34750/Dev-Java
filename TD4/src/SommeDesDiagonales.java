@@ -15,4 +15,8 @@ public class SommeDesDiagonales{
         }
         return x;
     }
+    /**
+     * Donnée : une matrice carré remplie d'entiers.
+     * Résultat :renvoie un entier qui représentera la somme des 2 diagonales de la matrice.
+     */
 }

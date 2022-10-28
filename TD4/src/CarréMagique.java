@@ -11,6 +11,10 @@ public class CarréMagique{
             }
         }
     }
+    /**
+     * Donnée : 1 Matrice
+     * Résultat :renvoie rien mais affiche l'entierete de la matrice ligne par ligne colonne par colonne.
+     */
     public static int sommeDesDiagonales(int[][] M){
         int l=M.length;
         int x=0;
@@ -24,6 +28,10 @@ public class CarréMagique{
         }
         return x;
     }
+    /**
+     * Donnée : 1 Matrice avec comme contenue seulement des entiers.
+     * Résultat :renvoie un entier qui correspondra a la somme des diagonales de la matrice.
+     */
     public static void remplirEnCarréMagique(int[][]tab){
         int l=0;
         int c=0;
@@ -74,7 +82,11 @@ public class CarréMagique{
         }
 
     }
-
+    /**
+     * Donnée : 1 matrice carré et impaire quelconque
+     * Résultat :renvoie rien mais transforme votre matrice en une
+     *           matrice carré remplie d'entiers et qui forme un carré magique
+     */
     public static int constanteMagiqueDe(int[][] tab) {
         int taillemat=tab.length;
         int x=0;
@@ -86,8 +98,8 @@ public class CarréMagique{
         return x;
     }
     /**
-     * Donnée : un tabeau d' entiers 2D
-     * Résultat :renvoie la somme de la premiere ligne de la matrice.
+     * Donnée : une matrice qui est un carré magique
+     * Résultat :renvoie un entier, la constante magique de ce carré.
      */
     public static int Sommedeslignes(int[][] tab,int l){
         int r=tab.length;
@@ -95,9 +107,13 @@ public class CarréMagique{
         for(int i=0;i<r;i++){
             x=x+tab[l][i];
         }
-
         return x;
     }
+    /**
+     * Donnée : une matrice carré remplie d'entiers ainsi qu'un entiers entre 0 et
+     *          (la taille de la matrice-1),(0 étant la premiere ligne).
+     * Résultat :renvoie un entier, la somme de la ligne de la matrice demandé.
+     */
     public static int Sommedescolonnes(int[][] tab,int c){
         int l=tab.length;
         int x=0;
@@ -106,6 +122,12 @@ public class CarréMagique{
         }
         return x;
     }
+    /**
+     * Donnée : une matrice carré remplie d'entiers ainsi qu'un entiers entre 0 et
+     *          (la taille de la matrice-1),(0 étant la premiere colonne).
+     * Résultat :renvoie un entiers, la somme de la colonne de la matrice demandé.
+     */
+
     public static boolean cEstUnCarréMagique(int[][] tab){
         boolean x=true;
         int y=0;
@@ -127,8 +149,11 @@ public class CarréMagique{
                 x=false;
             }
         }
-
         return x;
-
     }
+    /**
+     * Donnée : Une matrice carré remplie d'entiers.
+     * Résultat :renvoie un boolean qui sera soit vrai si la matrice carré donné est un carré magique
+     *           et faux si jamais celle-ci n'en est pas un.
+     */
 }

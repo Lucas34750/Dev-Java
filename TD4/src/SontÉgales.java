@@ -21,4 +21,8 @@ public class SontÉgales{
 
         return tad;
     }
+    /**
+     * Donnée : 2 matrices
+     * Résultat :renvoie un boolean s'il est vrai c'est que les matrices sont les meme sinon elles ne le sont pas.
+     */
 }

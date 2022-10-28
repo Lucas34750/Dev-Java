@@ -10,4 +10,9 @@ public class Multiplié{
         }
         return tad;
     }
+    /**
+     * Donnée : 2 matrices de meme taille constitué seulement de nombre entiers
+     * Résultat :renvoie une matrice de meme taille que ceux insérer avec comme contenue la multiplication
+     * des 2 matrices.
+     */
 }

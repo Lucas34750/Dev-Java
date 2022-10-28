@@ -11,4 +11,8 @@ public class afficherMatrice {
             }
         }
     }
+    /**
+     * Donnée : 1 matrice
+     * Résultat :renvoie rien mais affiche l'entierete de la matrice ligne par ligne et colonne par colonne.
+     */
 }

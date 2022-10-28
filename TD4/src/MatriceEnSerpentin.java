@@ -21,8 +21,15 @@ public class MatriceEnSerpentin {
                 }
             }
         }
-
     }
+    /**
+     * Donnée : 1 Matrice cubique
+     * Résultat :renvoie rien mais transforme la matrice insérer en matrice
+     *           étant constitué d'entiers de 1 a la taille de la matrice au carré
+     *           disposer dans celle-ci en serpent en commencant de la gauche vers le droite
+     *           puis de la droite vers la gauche a chaque fois que l'on change de ligne cela
+     *           s'inverse
+     */
 
     public static int[][] nouvelleMatriceEnSerpentin(int n) {
         int x = 1;
@@ -44,4 +51,10 @@ public class MatriceEnSerpentin {
         }
         return tab;
     }
+    /**
+     * Donnée : 1 entier naturel
+     * Résultat :renvoie une matrice avec comme taille l'entier donné et étant constitué d'entiers de 1 a
+     *           la taille de la matrice au carré disposer dans celle-ci en serpent en commencant de la gauche
+     *           vers le droite puis de la droite vers la gauche a chaque fois que l'on change de ligne cela s'inverse
+     */
 }

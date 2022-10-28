@@ -4,4 +4,8 @@ public class afficherTableau{
             System.out.println(T[i]);
         }
     }
+    /**
+     * Donnée : 1 trableau
+     * Résultat :renvoie rien mais affiche l'entierete d'un tableau en ligne.
+     */
 }

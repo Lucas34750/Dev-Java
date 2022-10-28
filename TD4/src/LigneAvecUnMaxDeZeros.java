@@ -31,4 +31,11 @@ public class LigneAvecUnMaxDeZeros{
         }
         return z+1;
     }
+    /**
+     * Donnée : une matrice remplie d'entiers.
+     * Résultat :renvoie un entier qui sera le numéro de la ligne (1 étant la premiere ligne)
+     *           dans laquelle il y a le maximum de zeros.
+     *           (Attention s'il y a plusieurs lignes avec le meme nombre de zéros et qu'aucune autre ligne
+     *           n'a plus de zeros qu'eux alors seulement le numéro de la ligne plus grand que les autres sera affiché)
+     */
 }

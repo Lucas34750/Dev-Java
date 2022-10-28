@@ -12,4 +12,8 @@ public class NombreDeZeros{
         }
         return x;
     }
+    /**
+     * Donnée : une matrice remplie d'entiers.
+     * Résultat :renvoie un entier qui représentera le nombre de zeros qu'il y a dans la matrice donné.
+     */
 }
