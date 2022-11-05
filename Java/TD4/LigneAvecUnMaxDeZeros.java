@@ -1,7 +1,7 @@
 public class LigneAvecUnMaxDeZeros{
-    public static int LigneAvecUnMaxDeZeros(int[][] t1){
-        int c=t1[0].length;
-        int l=t1.length;
+    public static int ligneAvecUnMaxDeZeros(int[][] t1){
+        int c=t1.length;
+        int l=t1[0].length;
         int [][] tab=new int[c][l];
         int x=0;
         int y=0;
