@@ -79,7 +79,7 @@ public class NumérationRomaine {
      * Résultat :renvoie un string qui sera qui sera un entier de 1 a 999 en
      * chiffres romains avec un espace entre chaque chiffres.
      */
-    public static Void afficher(int n) {
+    public static void afficher(int n) {
         String nb = "";
         int cent = n % 1000;
         n = (n - (n % 1000)) / 1000;
@@ -91,7 +91,6 @@ public class NumérationRomaine {
         nb += " ";
         nb += centaines(cent);
         System.out.println(nb);
-        return null;
     }
     /**
      * Donnée : un Entier compris entre 1 et 3999

@@ -1,9 +1,9 @@
 public class SontÉgales{
-    public static boolean SontÉgales(int[][] t1,int[][] t2){
-        int c1=t1[0].length;
-        int l1=t1.length;
-        int c2=t2[0].length;
-        int l2=t2.length;
+    public static boolean sontÉgales(int[][] t1,int[][] t2){
+        int c1=t1.length;
+        int l1=t1[0].length;
+        int c2=t2.length;
+        int l2=t2[0].length;
         boolean tad=true;
         if((c1==c2) && (l1==l2)){
             for(int i=0;i<c1;i++){
