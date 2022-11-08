@@ -107,4 +107,32 @@ public class MasterMindTest {
         return r;
     }
 
+    //______________________________________________
+
+    // Dans toutes les fonctions suivantes, on a comme pré-requis implicites sur les paramètres lgCode, nbCouleurs et tabCouleurs :
+    // lgCode > 0, nbCouleurs > 0, tabCouleurs.length > 0 et les éléments de tabCouleurs sont différents
+
+    // fonctions sur les codes pour la manche Humain
+
+    /** pré-requis : aucun
+     résultat : un tableau de lgCode entiers choisis aléatoirement entre 0 et nbCouleurs-1
+     */
+    public static int[] codeAleat(int lgCode, int nbCouleurs){
+        int[] codeA =new int[lgCode];
+        int n=0;
+        for(int i=0;i<lgCode;i++) {
+            n=(int)(Math.random() * nbCouleurs-1);
+            codeA[i]=n;
+        }
+        return codeA;
+    }
+
+    /** pré-requis : aucun
+     action : si codMot n'est pas correct, affiche pourquoi
+     résultat : vrai ssi codMot est correct, c'est-à-dire de longueur lgCode et ne contenant que des éléments de tabCouleurs
+     */
+    public static boolean codeCorrect(String codMot, int lgCode, char[] tabCouleurs){
+        int r=0;
+        r=codMot.length();
+    }
 } // fin MasterMindBase
