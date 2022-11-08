@@ -7,7 +7,7 @@ public class CarréMagique{
                 System.out.println();
             }
             for (int j = 0; j < l; j++) {
-                System.out.print(T[i][j]+" ");
+                System.out.print(T[i][j]+"\t");
             }
         }
     }
