@@ -1,5 +1,4 @@
-import java.util.*;
-import java.lang.*;
+import java.util.Scanner;
 
 public class MasterMindTest {
 
@@ -104,6 +103,8 @@ public class MasterMindTest {
                 r=false;
             }
         }
+
+
         return r;
     }
 
@@ -132,7 +133,105 @@ public class MasterMindTest {
      résultat : vrai ssi codMot est correct, c'est-à-dire de longueur lgCode et ne contenant que des éléments de tabCouleurs
      */
     public static boolean codeCorrect(String codMot, int lgCode, char[] tabCouleurs){
-        int r=0;
-        r=codMot.length();
+        boolean bool=true;
+        int j=0;
+        char[] charat=new char[codMot.length()];
+        for(int i = 0;i<codMot.length();i++){
+            charat[i] = codMot.charAt(i);
+        }
+        while(bool && j<tabCouleurs.length){
+            bool=estPresent(tabCouleurs, charat[j]);
+            j++;
+        }
+        if(bool==false){
+            System.out.println("un caractere dans codMot ne correspond pas a tabCouleur codMot doit avoir seulement comme caractere les suivant :");
+            afficherTableau.afficherTableauChar(tabCouleurs);
+            System.out.println();
+        }
+        if (codMot.length()!=lgCode){
+            bool=false;
+            System.out.println("la longueur de codMot est différente de lgCode, elle doit avoir "+lgCode+" caracteres.");
+        }
+        return bool;
     }
+    /** pré-requis : les caractères de codMot sont des éléments de tabCouleurs
+     résultat : le code codMot sous forme de tableau d'entiers en remplaçant chaque couleur par son indice dans tabCouleurs
+     */
+    public static int[] motVersEntiers(String codMot, char[] tabCouleurs){
+        int[] indicet=new int[codMot.length()];
+        char[] charat=new char[codMot.length()];
+        for(int i = 0;i<codMot.length();i++){
+            charat[i] = codMot.charAt(i);
+        }
+        for(int i = 0;i<codMot.length();i++){
+            indicet[i] = plusGrandIndice(tabCouleurs,charat[i]);
+        }
+        return indicet;
+    }
+
+    /** pré-requis : aucun
+     action : demande au joueur humain de saisir la (nbCoups + 1)ème proposition de code sous forme de mot, avec re-saisie éventuelle jusqu'à ce
+     qu'elle soit correcte (le paramètre nbCoups ne sert que pour l'affichage)
+     résultat : le code saisi sous forme de tableau d'entiers
+     */
+    public static int[] propositionCodeHumain(int nbCoups, int lgCode, char[] tabCouleurs){
+        nbCoups+=1;
+        Scanner scanner=new Scanner(System.in);
+        System.out.println("écris ta proposition "+nbCoups+".");
+        String mot=scanner.nextLine();
+        while(codeCorrect(mot,lgCode,tabCouleurs)!=true){
+            mot=scanner.nextLine();
+        }
+        System.out.println("la proposition "+nbCoups+" est "+mot);
+        return motVersEntiers(mot,tabCouleurs);
+    }
+    /** pré-requis : cod1.length = cod2.length
+     résultat : le nombre d'éléments communs de cod1 et cod2 se trouvant au même indice
+     Par exemple, si cod1 = (1,0,2,0) et cod2 = (0,1,0,0) la fonction retourne 1 (le "0" à l'indice 3)
+     */
+    public static int nbBienPlaces(int[] cod1,int[] cod2){
+        int r=0;
+        for(int i=0;i<cod1.length;i++){
+            if(cod1[i]==cod2[i]){
+                r++;
+            }
+        }
+        return r;
+    }
+
+    /** pré-requis : les éléments de cod sont des entiers de 0 à nbCouleurs-1
+     résultat : un tableau de longueur nbCouleurs contenant à chaque indice i le nombre d'occurrences de i dans cod
+     Par exemple, si cod = (1,0,2,0) et nbCouleurs = 6 la fonction retourne (2,1,1,0,0,0)
+     */
+    public static int[] tabFrequence(int[] cod, int nbCouleurs){
+        int[] tab=new int[nbCouleurs];
+        for(int i=0;i<cod.length;i++){
+            tab[cod[i]]+=1;
+        }
+        return tab;
+    }
+
+    /** pré-requis : les éléments de cod1 et cod2 sont des entiers de 0 à nbCouleurs-1
+     résultat : le nombre d'éléments communs de cod1 et cod2, indépendamment de leur position
+     Par exemple, si cod1 = (1,0,2,0) et cod2 = (0,1,0,0) la fonction retourne 3 (2 "0" et 1 "1")
+     */
+    public static int nbCommuns(int[] cod1,int[] cod2, int nbCouleurs){
+        int r=0;
+        int []tab1=MasterMindTest.tabFrequence(cod1,nbCouleurs);
+        int []tab2=MasterMindTest.tabFrequence(cod2,nbCouleurs);
+        for(int i=0;i<nbCouleurs;i++){
+            if(tab1[i]==tab2[i]){
+                r+=tab1[i];
+            }
+            else-if(tab1[i]<tab2[i]){
+                r+=tab1[i];
+            }
+            else{
+                r+=tab2[i];
+            }
+        }
+        return r;
+    }
+
 } // fin MasterMindBase
+

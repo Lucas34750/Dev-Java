@@ -132,7 +132,7 @@ public class MasterMindBase {
 	Par exemple, si cod = (1,0,2,0) et nbCouleurs = 6 la fonction retourne (2,1,1,0,0,0)
     */
     public static int[] tabFrequence(int[] cod, int nbCouleurs){
-  
+
     }
 
     //____________________________________________________________
