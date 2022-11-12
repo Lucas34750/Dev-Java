@@ -2,8 +2,8 @@ public class Main {
     public static void main(String[] args) {
         char[] cha={'r','b','v','j'};
         char[] cha2={'r','b','v','j'};
-        int[] cod={1,2,3,4};
-        int[] cod2={1,1,2,4};
-        afficherTableau.afficherTableau(MasterMindTest.tabFrequence(cod2,6));
+        int[] cod={1,0,2,0};
+        int[] cod2={3,3,3,3};
+        System.out.print(MasterMindTest.nbCommuns(cod,cod2,6));
     }
 }
