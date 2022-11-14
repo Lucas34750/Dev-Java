@@ -189,9 +189,9 @@ public class MasterMindTest {
         System.out.println("la proposition "+nbCoups+" est "+mot);
         return motVersEntiers(mot,tabCouleurs);
     }
-    /** pré-requis : cod1.length = cod2.length
-     résultat : le nombre d'éléments communs de cod1 et cod2 se trouvant au même indice
-     Par exemple, si cod1 = (1,0,2,0) et cod2 = (0,1,0,0) la fonction retourne 1 (le "0" à l'indice 3)
+    /* pré-requis : cod1.length = cod2.length
+     * résultat : le nombre d'éléments communs de cod1 et cod2 se trouvant au même indice
+     * Par exemple, si cod1 = (1,0,2,0) et cod2 = (0,1,0,0) la fonction retourne 1 (le "0" à l'indice 3)
      */
     public static int nbBienPlaces(int[] cod1,int[] cod2){
         int r=0;
@@ -314,6 +314,25 @@ public class MasterMindTest {
      résultat : les réponses du joueur humain dans un tableau à 2 entiers
      */
     public static int[] reponseHumain(int lgCode){
+        Scanner scanner=new Scanner(System.in);
+        int []tab= new int[2];
+        for(int i=0; i<1 || !repCorrecte(tab,lgCode);i++){
+            System.out.println("(Attention l'addition des nombres bien et mal placé doit etre inferieur ou egal a "+lgCode+" et ils doivent etre positif)");
+            System.out.println("saisie le nombre de nombres bien placé");
+            tab[0]=scanner.nextInt();
+            System.out.println("saisie le nombre de nombres mal placé");
+            tab[1]=scanner.nextInt();
+        }
+        return tab;
+    }
+    //___________________________________________________________________
+
+    /** pré-requis : les éléments de cod1 sont des entiers de 0 à nbCouleurs-1
+     action : met dans cod1 le code qui le suit selon l'ordre lexicographique dans l'ensemble
+     des codes de longueur cod1.length à valeurs de 0 à nbCouleurs-1, si ce code existe
+     résultat : vrai ssi l'action a pu être effectuée
+     */
+    public static boolean passeCodeSuivantLexico(int[] cod1, int  nbCouleurs){
 
     }
 

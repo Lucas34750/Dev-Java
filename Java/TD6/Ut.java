@@ -4,6 +4,7 @@ import java.lang.*;
 public class Ut {
 
     public static void afficher (String ch) {
+
         System.out.print(ch);
     }
     public static void afficherSL (String ch) {

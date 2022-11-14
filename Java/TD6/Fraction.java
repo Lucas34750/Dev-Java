@@ -6,13 +6,13 @@ public class Fraction {
     private int numerateur;
 
     private int denominateur; // Invariant : different de 0
-
+    /*  Action : constructeur a partir de deux entiers.
+     *  Pre-requis : denom est different de 0 !
+     */
     public Fraction (int num, int denom) {
-        /*  Action : constructeur a partir de deux entiers.
-         *  Pre-requis : denom est different de 0 !
-         */
-        this.numerateur = num;
-        this.denominateur = denom;
+        int d=Ut.pgcd(this.numerateur,this.denominateur);
+        this.numerateur/=d;
+        this.denominateur/=d;
     }
 
     public Fraction (Fraction frac) { // constructeur par recopie frac --> this

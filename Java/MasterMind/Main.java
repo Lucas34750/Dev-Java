@@ -3,6 +3,6 @@ public class Main {
         char[] cha={'R','B','J','V','O','N'};
         int[] cod={1,0,2,0};
         int[] cod2={1,2};
-        System.out.println(MasterMindTest.repCorrecte(cod2,4));
+        afficherTableau.afficherTableau(MasterMindTest.reponseHumain(4));
     }
 }
