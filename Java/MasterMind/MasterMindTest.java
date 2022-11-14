@@ -12,6 +12,7 @@ public class MasterMindTest {
 	résultat : un tableau de nb entiers égaux à val
     */
     public static int[] initTab(int nb, int val){
+        assert nb >= 0;
         int[] tab=new int[nb];
         for(int i=0;i<nb;i++){
             tab[i]=val;
@@ -33,12 +34,15 @@ public class MasterMindTest {
      résultat : une copie de tab
      */
     public static int[] copieTab(int[] tab){
-        int[] tabcopie=new int[tab.length];
-        for(int i=0;i<tab.length;i++){
-            tabcopie[i]=tab[i];
-        }
-        return tabcopie;
+//        int[] tabcopie=new int[tab.length];
+//
+//        for(int i=0;i<tab.length;i++){
+//            tabcopie[i]=tab[i];
+//        }
+//        return tabcopie;
+        return tab.clone();
     }
+
     public static String listElem(char[] t){
         String list="";
         for (int i = 0; i < t.length; i++) {
@@ -97,6 +101,7 @@ public class MasterMindTest {
      résultat : vrai ssi t1 et t2 contiennent la même suite d'entiers
      */
     public static boolean sontEgaux(int[] t1, int[] t2){
+        assert t1.length == t2.length;
         boolean r=true;
         for(int i=0;i< t1.length;i++){
             if(t1[i]!=t2[i]){
@@ -202,6 +207,8 @@ public class MasterMindTest {
      résultat : un tableau de longueur nbCouleurs contenant à chaque indice i le nombre d'occurrences de i dans cod
      Par exemple, si cod = (1,0,2,0) et nbCouleurs = 6 la fonction retourne (2,1,1,0,0,0)
      */
+    // O = 4
+    // cod = (4,4,4,4)
     public static int[] tabFrequence(int[] cod, int nbCouleurs){
         int[] tab=new int[nbCouleurs];
         for(int i=0;i<cod.length;i++){
