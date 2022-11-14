@@ -25,7 +25,7 @@ public class MasterMindTest {
         }
     }
     /**
-     * Donnée : 1 tableau
+     * Donnée : 1 tableau d'entiers
      * Résultat :renvoie rien mais affiche l'entierete d'un tableau en ligne.
      */
 
@@ -139,7 +139,7 @@ public class MasterMindTest {
         for(int i = 0;i<codMot.length();i++){
             charat[i] = codMot.charAt(i);
         }
-        while(bool && j<tabCouleurs.length){
+        while(bool && j<charat.length){
             bool=estPresent(tabCouleurs, charat[j]);
             j++;
         }
@@ -175,7 +175,6 @@ public class MasterMindTest {
      résultat : le code saisi sous forme de tableau d'entiers
      */
     public static int[] propositionCodeHumain(int nbCoups, int lgCode, char[] tabCouleurs){
-        nbCoups+=1;
         Scanner scanner=new Scanner(System.in);
         System.out.println("écris ta proposition "+nbCoups+".");
         String mot=scanner.nextLine();
@@ -240,8 +239,77 @@ public class MasterMindTest {
      et 2 mal placés (1 "0" et 1 "1")
      */
     public static int[] nbBienMalPlaces(int[] cod1,int[] cod2, int nbCouleurs){
+        int[] tab=new int[2];
+        tab[0]=nbBienPlaces(cod1,cod2);
+        tab[1]=nbCommuns(cod1,cod2,nbCouleurs)-nbBienPlaces(cod1,cod2);
+        return tab;
+    }
+
+    //.........................................................................
+    // MANCHEHUMAIN
+    //.........................................................................
+
+    /** pré-requis : numManche >= 1
+     action : effectue la (numManche)ème manche où l'ordinateur est le codeur et l'humain le décodeur
+     (le paramètre numManche ne sert que pour l'affichage)
+     résultat :
+     - un nombre supérieur à nbEssaisMax, calculé à partir du dernier essai du joueur humain (cf. sujet),
+     s'il n'a toujours pas trouvé au bout du nombre maximum d'essais
+     - sinon le nombre de codes proposés par le joueur humain
+     */
+    public static int mancheHumain(int lgCode, char[] tabCouleurs, int numManche, int nbEssaisMax){
+        assert numManche >= 1;
+        int r;
+        int [] x = codeAleat(4,6);
+        int [] y = new int[6];
+        int [] b = new int[2];
+        for(int i=2; (sontEgaux(x,y)!=true) && (numManche<=nbEssaisMax); i++){
+            y=propositionCodeHumain(numManche,lgCode,tabCouleurs);
+            b= nbBienMalPlaces(x,y,tabCouleurs.length);
+            System.out.println( b[0]+" nombre bien placés.");
+            System.out.println( b[1]+" nombre mal placés.");
+            numManche=i;
+        }
+        if(numManche<nbEssaisMax){
+            r=numManche-1;
+            System.out.println("Bravo vous avez reussi en "+r+" essais");
+        }
+        else{
+            r=numManche-1+((lgCode-nbBienPlaces(x,y))+2*(lgCode-(nbBienPlaces(x,y)+(lgCode-nbBienPlaces(x,y)))));
+            System.out.println("Malheuresement vous avez depassé le nbessaimax bouuhhhh votre score est donc de "+r);
+        }
+        return r;
+    }
+    public static String entiersVersMot(int[] cod, char[] tabCouleurs){
+        String mot ="";
+        for(int i=0;i<cod.length;i++){
+            mot+=tabCouleurs[cod[i]];
+        }
+        return mot;
+    }
+
+    /** pré-requis : rep.length = 2
+     action : si rep n'est pas  correcte, affiche pourquoi, sachant que rep[0] et rep[1] sont
+     les nombres de bien et mal placés resp.
+     résultat : vrai ssi rep est correct, c'est-à-dire rep[0] et rep[1] sont >= 0 et leur somme est <= lgCode
+     */
+    public static boolean repCorrecte(int[] rep, int lgCode){
+        boolean r=false;
+        if(rep[0]>=0 && rep[1]>=0 && rep[0]+rep[1]<=lgCode){
+            r=true;
+        }
+        return r;
+    }
+
+    /** pré-requis : aucun
+     action : demande au joueur humain de saisir les nombres de bien et mal placés,
+     avec re-saisie éventuelle jusqu'à ce qu'elle soit correcte
+     résultat : les réponses du joueur humain dans un tableau à 2 entiers
+     */
+    public static int[] reponseHumain(int lgCode){
 
     }
+
 
 } // fin MasterMindBase
 
