@@ -2,7 +2,6 @@ import java.util.Scanner;
 import java.lang.*;
 
 public class Fraction {
-
     private int numerateur;
 
     private int denominateur; // Invariant : different de 0
@@ -43,12 +42,19 @@ public class Fraction {
     // }
 
     public String toString() {
+
         return this.numerateur + "/" + this.denominateur;
     }
     public void reduire(){
         int d=Ut.pgcd(this.numerateur,this.denominateur);
         this.numerateur/=d;
         this.denominateur/=d;
+    }
+
+    public Fraction fractionReduite (){
+        Fraction frac=new Fraction(this);
+        frac.reduire();
+        return frac;
     }
 
 
