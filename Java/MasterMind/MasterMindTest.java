@@ -332,9 +332,10 @@ public class MasterMindTest {
      des codes de longueur cod1.length à valeurs de 0 à nbCouleurs-1, si ce code existe
      résultat : vrai ssi l'action a pu être effectuée
      */
-    public static boolean passeCodeSuivantLexico(int[] cod1, int  nbCouleurs){
+    //public static boolean passeCodeSuivantLexico(int[] cod1, int  nbCouleurs){
+     //   teste toute les possibilite
 
-    }
+    //}
 
 
 } // fin MasterMindBase

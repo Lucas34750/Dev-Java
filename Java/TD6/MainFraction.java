@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 import java.lang.*;
 
@@ -21,6 +22,7 @@ class MainFraction { // Classe de test de Fraction et contenant la fonction prin
         System.out.println ("f4 = " + f4); // f4 n'etant pas de type String, f4.toString() est invoquee automatiquement : le resultat est concatene a la chaine precedente ("f4 = ")
 
         /* A COMPLETER A PARTIR D'ICI !! */
-
+        f1.reduire();
+        System.out.println(f1.toString());
     }
 }

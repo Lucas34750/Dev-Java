@@ -6,13 +6,13 @@ public class Fraction {
     private int numerateur;
 
     private int denominateur; // Invariant : different de 0
-    /*  Action : constructeur a partir de deux entiers.
-     *  Pre-requis : denom est different de 0 !
-     */
+
     public Fraction (int num, int denom) {
-        int d=Ut.pgcd(this.numerateur,this.denominateur);
-        this.numerateur/=d;
-        this.denominateur/=d;
+        /*  Action : constructeur a partir de deux entiers.
+         *  Pre-requis : denom est different de 0 !
+         */
+        this.numerateur = num;
+        this.denominateur = denom;
     }
 
     public Fraction (Fraction frac) { // constructeur par recopie frac --> this
@@ -45,9 +45,12 @@ public class Fraction {
     public String toString() {
         return this.numerateur + "/" + this.denominateur;
     }
+    public void reduire(){
+        int d=Ut.pgcd(this.numerateur,this.denominateur);
+        this.numerateur/=d;
+        this.denominateur/=d;
+    }
 
-    /* A COMPLETER A PARTIR D'ICI !! */
 
-    // Dans terminal : [javac Fraction] ; javac MainFraction.java ;  java MainFraction
 
 }
