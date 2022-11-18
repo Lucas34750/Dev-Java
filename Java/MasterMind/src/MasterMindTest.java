@@ -327,13 +327,16 @@ public class MasterMindTest {
     }
     //___________________________________________________________________
 
-    /** pré-requis : les éléments de cod1 sont des entiers de 0 à nbCouleurs-1
-     action : met dans cod1 le code qui le suit selon l'ordre lexicographique dans l'ensemble
-     des codes de longueur cod1.length à valeurs de 0 à nbCouleurs-1, si ce code existe
-     résultat : vrai ssi l'action a pu être effectuée
+    /**CHANGE : action si le code suivant n'existe pas
+     *************************************************
+     pré-requis : les éléments de cod1 sont des entiers de 0 à nbCouleurs-1
+     action/résultat : met dans cod1 le code qui le suit selon l'ordre lexicographique (dans l'ensemble
+     des codes à valeurs  de 0 à nbCouleurs-1) et retourne vrai si ce code existe,
+     sinon met dans cod1 le code ne contenant que des "0" et retourne faux
      */
     public static boolean passeCodeSuivantLexico(int[] cod1, int  nbCouleurs){
-        
+        int taille =cod1.length;
+        for(taille)
     }
 
 

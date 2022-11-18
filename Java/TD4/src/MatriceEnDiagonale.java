@@ -30,7 +30,7 @@ public class MatriceEnDiagonale {
                 x++;
                 y--;
             }
-        }é
+        }
     }
     /**
      * Donnée : 1 matrice cubique.

@@ -57,6 +57,4 @@ public class Fraction {
         return frac;
     }
 
-
-
 }
