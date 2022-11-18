@@ -23,12 +23,7 @@ public class MatriceEnRangée {
     public static int[][] nouvelleMatriceEnRangée(int n){
         int x=1;
         int[][] tab =new int[n][n];
-        for(int i=0;i<n;i++){
-            for(int j=0;j<n;j++){
-                tab[i][j]=x;
-                x=x+1;
-            }
-        }
+        remplirCetteMatriceEnRangée(tab);
         return tab;
     }
     /**

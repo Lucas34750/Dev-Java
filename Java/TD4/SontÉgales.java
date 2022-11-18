@@ -4,13 +4,15 @@ public class SontÉgales{
         int l1=t1[0].length;
         int c2=t2.length;
         int l2=t2[0].length;
+        int j=0;
         boolean tad=true;
         if((c1==c2) && (l1==l2)){
             for(int i=0;i<c1;i++){
-                for(int j=0;j<l1;j++){
+                while(j<l1 && tad){
                     if(t1[i][j]!=t2[i][j]) {
                         tad = false;
                     }
+                    j++;
                 }
             }
         }

@@ -14,8 +14,9 @@ public class MatriceEnSerpentin {
                     tab[i][j] = x;
                     x = x + 1;
                 }
-            } else {
-                for (int j = 3; j >= 0; j--) {
+            }
+            else {
+                for (int j = taillemat-1; j >= 0; j--) {
                     tab[i][j] = x;
                     x = x + 1;
                 }
@@ -43,7 +44,7 @@ public class MatriceEnSerpentin {
                     x = x + 1;
                 }
             } else {
-                for (int j = 3; j >= 0; j--) {
+                for (int j = n-1; j >= 0; j--) {
                     tab[i][j] = x;
                     x = x + 1;
                 }
