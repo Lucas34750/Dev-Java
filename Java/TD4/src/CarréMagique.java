@@ -1,4 +1,8 @@
 public class CarréMagique{
+    /**
+     * Donnée : un tableau d'entiers carré de n rangées et n colonnes
+     * Résultat : affiche le tableau une rangée par ligne et en séparant les entiers sur chaque ligne par une tabulation
+     */
     public static void afficherCarré(int[][] T) {
         int c = T[0].length;
         int l = T.length;

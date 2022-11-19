@@ -57,4 +57,52 @@ public class Fraction {
         return frac;
     }
 
+    public Fraction fois(Fraction X){
+        int num=this.numerateur*X.numerateur;
+        int denom=this.denominateur*X.denominateur;
+        Fraction f=new Fraction(num,denom);
+        f.reduire();
+        return f;
+    }
+
+    public Fraction plus(Fraction X){
+        int num=this.numerateur*X.denominateur;
+        int denom=this.denominateur*X.denominateur;
+        int num1=this.denominateur*X.numerateur;
+        int denom1=this.denominateur*X.denominateur;
+        num+=num1;
+        Fraction f=new Fraction(num,denom);
+        f.reduire();
+        return f;
+    }
+    public Fraction puissance(int n){
+        Fraction p=new Fraction(this);
+        Fraction p2=new Fraction(this);
+        for(int i=0;i<=n;i++){
+            if(i==0){
+                p.denominateur=1;
+                p.numerateur=1;
+            }
+            else if(i==1){
+                p.numerateur=this.numerateur;
+                p.denominateur=this.denominateur;
+            }
+            else{
+                p= p.fois(p2);
+            }
+        }
+        p.reduire();
+        return p;
+    }
+    public boolean égale(Fraction X){
+        Fraction f=this.fractionReduite();
+        Fraction f2=X.fractionReduite();
+        if(f.numerateur==f2.numerateur && f.denominateur==f2.denominateur){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    
 }

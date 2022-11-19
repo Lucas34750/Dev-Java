@@ -335,8 +335,10 @@ public class MasterMindTest {
      sinon met dans cod1 le code ne contenant que des "0" et retourne faux
      */
     public static boolean passeCodeSuivantLexico(int[] cod1, int  nbCouleurs){
-        int taille =cod1.length;
-        for(taille)
+        int i=cod1.length-1;
+        while(cod1[i]==nbCouleurs-1){
+
+        }
     }
 
 
