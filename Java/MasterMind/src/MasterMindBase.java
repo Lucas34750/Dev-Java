@@ -9,8 +9,8 @@ public class MasterMindBase {
     // fonctions classiques sur les tableaux
 
     /** pré-requis : nb >= 0
-     résultat : un tableau de nb entiers égaux à val
-     */
+    résultat : un tableau de nb entiers égaux à val
+    */
     public static int[] initTab(int nb, int val){
         assert nb >= 0;
         int[] tab=new int[nb];
@@ -20,19 +20,20 @@ public class MasterMindBase {
         return tab;
     }
 
+
+    /** pré-requis : aucun
+     résultat :renvoie rien mais affiche l'entierete d'un tableau en ligne.
+     */
     public static void afficherTableau(int[] T) {
         for (int i = 0; i < T.length; i++) {
             System.out.println(T[i]);
         }
     }
-    /**
-     * Donnée : 1 tableau d'entiers
-     * Résultat :renvoie rien mais affiche l'entierete d'un tableau en ligne.
-     */
 
-    /** pré-requis : aucun
-     résultat : une copie de tab
-     */
+
+     /** pré-requis : aucun
+    résultat : une copie de tab
+    */
     public static int[] copieTab(int[] tab){
 //        int[] tabcopie=new int[tab.length];
 //
@@ -43,6 +44,10 @@ public class MasterMindBase {
         return tab.clone();
     }
 
+
+    /** pré-requis : aucun
+    résultat : la liste des éléments de t entre parenthèses et séparés par des virgules
+    */
     public static String listElem(char[] t){
         String list="";
         for (int i = 0; i < t.length; i++) {
@@ -59,9 +64,11 @@ public class MasterMindBase {
         }
         return list;
     }
+    
+
     /** pré-requis : aucun
-     résultat : le plus grand indice d'une case de t contenant c s'il existe, -1 sinon
-     */
+    résultat : le plus grand indice d'une case de t contenant c s'il existe, -1 sinon
+    */
     public static int plusGrandIndice(char[] t, char c){
         int indice=-1;
         for(int i=0;i<t.length;i++){
@@ -71,6 +78,8 @@ public class MasterMindBase {
         }
         return indice;
     }
+
+    
     /** pré-requis : aucun
      résultat : vrai ssi c est un élément de t
      stratégie : utilise la fonction plusGrandIndice
