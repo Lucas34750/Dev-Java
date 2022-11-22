@@ -362,8 +362,8 @@ public class MasterMindTest {
          c'est-à-dire que si cod1 était le code secret, les réponses aux nbCoups premières
          propositions de cod seraient les nbCoups premières réponses de rep resp.
          */
-        public static boolean estCompat(int [] cod1, int [][] cod,int [][] rep, int nbCoups, int  nbCouleurs){
-            v=true;
+        public static boolean estCompat(int [] cod1, int [][] cod,int [][] rep, int nbCoups,int  nbCouleurs){
+            boolean v=true;
             for(int i;i<nbCoups;i++){
                 if(sontEgaux(nbBienMalPlaces(cod1,cod[i], nbCouleurs),rep[i])!=true){
                     v=false;
@@ -384,7 +384,7 @@ public class MasterMindTest {
         public static boolean passeCodeSuivantLexicoCompat(int [] cod1, int [][] cod,int [][] rep, int nbCoups, int  nbCouleurs){
             int[] cod2=new int[cod1.length];
             passeCodeSuivantLexico(cod1,nbCouleurs);
-            while(estCompat(cod1,cod,rep,nbCoups,nbCouleurs!=true && sontEgaux(cod1,cod2)!=true){
+            while(estCompat(cod1,cod,rep,nbCoups,nbCouleurs!=true && sontEgaux(cod1,cod2)!=true)){
                 passeCodeSuivantLexico(cod1,nbCouleurs);
             }
             if(sontEgaux(cod1,cod2)!=true){

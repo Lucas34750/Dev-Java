@@ -56,7 +56,6 @@ public class Fraction {
         frac.reduire();
         return frac;
     }
-
     public Fraction fois(Fraction X){
         int num=this.numerateur*X.numerateur;
         int denom=this.denominateur*X.denominateur;
@@ -64,7 +63,6 @@ public class Fraction {
         f.reduire();
         return f;
     }
-
     public Fraction plus(Fraction X){
         int num=this.numerateur*X.denominateur;
         int denom=this.denominateur*X.denominateur;
@@ -104,5 +102,9 @@ public class Fraction {
             return false;
         }
     }
-    
+
+    public boolean estIrréductible(Fraction X){
+        Fraction f=this.fractionReduite();
+        return f.égale(this);
+    }
 }
