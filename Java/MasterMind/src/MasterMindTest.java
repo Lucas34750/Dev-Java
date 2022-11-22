@@ -336,9 +336,78 @@ public class MasterMindTest {
      */
     public static boolean passeCodeSuivantLexico(int[] cod1, int  nbCouleurs){
         int i=cod1.length-1;
-        while(cod1[i]==nbCouleurs-1){
+        while(i>=0 && cod1[i]==nbCouleurs-1){
+            i--;
+        }
+        if(i<0){
+            for(int j=0;j<cod1.length;j+=1){
+                cod1[j]=0;
+            }
+            return false;
+        }
+        else{
+            cod1[i]++;
+            i++;
+            for(i=i;i<cod1.length;i++){
+                cod1[i]=0;
+            }
+            return true;
+        }
+
+        /**CHANGE : ajout du paramètre cod1 et modification des spécifications
+         *********************************************************************
+         pré-requis : cod est une matrice à cod1.length colonnes, rep est une matrice à 2 colonnes, 0 <= nbCoups < cod.length,
+         nbCoups < rep.length et les éléments de cod1 et de cod sont des entiers de 0 à nbCouleurs-1
+         résultat : vrai ssi cod1 est compatible avec les nbCoups premières lignes de cod et de rep,
+         c'est-à-dire que si cod1 était le code secret, les réponses aux nbCoups premières
+         propositions de cod seraient les nbCoups premières réponses de rep resp.
+         */
+        public static boolean estCompat(int [] cod1, int [][] cod,int [][] rep, int nbCoups, int  nbCouleurs){
+            v=true;
+            for(int i;i<nbCoups;i++){
+                if(sontEgaux(nbBienMalPlaces(cod1,cod[i], nbCouleurs),rep[i])!=true){
+                    v=false;
+                }
+            }
+            return v;
+        }
+        /**CHANGE : renommage de passePropSuivante en passeCodeSuivantLexicoCompat,
+         ajout du paramètre cod1 et modification des spécifications
+         **************************************************************************
+         pré-requis : cod est une matrice à cod1.length colonnes, rep est une matrice à 2 colonnes, 0 <= nbCoups < cod.length,
+         nbCoups < rep.length et les éléments de cod1 et de cod sont des entiers de 0 à nbCouleurs-1
+         action/résultat : met dans cod1 le plus petit code (selon l'ordre lexicographique (dans l'ensemble
+         des codes à valeurs  de 0 à nbCouleurs-1) qui est à la fois plus grand que
+         cod1 selon cet ordre et compatible avec les nbCoups premières lignes de cod et rep si ce code existe,
+         sinon met dans cod1 le code ne contenant que des "0" et retourne faux
+         */
+        public static boolean passeCodeSuivantLexicoCompat(int [] cod1, int [][] cod,int [][] rep, int nbCoups, int  nbCouleurs){
+            int[] cod2=new int[cod1.length];
+            passeCodeSuivantLexico(cod1,nbCouleurs);
+            while(estCompat(cod1,cod,rep,nbCoups,nbCouleurs!=true && sontEgaux(cod1,cod2)!=true){
+                passeCodeSuivantLexico(cod1,nbCouleurs);
+            }
+            if(sontEgaux(cod1,cod2)!=true){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
+        /** pré-requis : numManche >= 2
+         action : effectue la (numManche)ème  manche où l'humain est le codeur et l'ordinateur le décodeur
+         (le paramètre numManche ne sert que pour l'affichage)
+         résultat :
+         - 0 si le programme détecte une erreur dans les réponses du joueur humain
+         - un nombre supérieur à nbEssaisMax, calculé à partir du dernier essai de l'ordinateur (cf. sujet),
+         s'il n'a toujours pas trouvé au bout du nombre maximum d'essais
+         - sinon le nombre de codes proposés par l'ordinateur
+         */
+        public static int mancheOrdinateur(int lgCode,char[] tabCouleurs, int numManche, int nbEssaisMax) {
 
         }
+
     }
 
 

@@ -37,54 +37,34 @@ public class CarréMagique{
      * Résultat :renvoie un entier qui correspondra a la somme des diagonales de la matrice.
      */
     public static void remplirEnCarréMagique(int[][]tab){
-        int l=0;
-        int c=0;
-        int taillemat=tab.length;
-        int taillematv=taillemat*taillemat;
-        l=(taillemat-1)/2;
-        for(int i=0;i<taillemat;i++){
-            for(int j=0;j<taillemat;j++){
+        for(int i=0;i<tab.length;i++) {
+            for(int j=0;j<tab[0].length;j++){
                 tab[i][j]=0;
             }
         }
-        for(int i=0;i<taillematv;i++){
-            if(tab[c][l]==0){
-                tab[c][l] = i + 1;
+        int lon= tab.length;
+        int i=0;
+        int j=lon/2;
+        int a=1;
+        int g;
+        int f;
+        while(a<=lon*lon){
+            tab[i][j]=a++;
+            g=i;
+            f=j;
+            i-=1;
+            j+=1;
+            if (i<0){
+                i=lon-1;
             }
-            else{
-                if(c-1<0){
-                    c=taillemat-1;
-
-                }
-                else{
-                    c=c-1;
-                }
-
-                if(l-1<0){
-                    l=taillemat-1;
-                }
-                else{
-                    l = l - 1;
-                }
-                tab[c][l] = i + 1;
+            if(j>=lon){
+                j=0;
             }
-
-            if(l+1>=taillemat){
-                l=0;
-            }
-            else{
-                l=l+1;
-            }
-
-            if(c-1<0){
-                c=taillemat-1;
-
-            }
-            else{
-                c=c-1;
+            if(tab[i][j]!=0) {
+                i=g+1;
+                j=f;
             }
         }
-
     }
     /**
      * Donnée : 1 matrice carré et impaire quelconque
